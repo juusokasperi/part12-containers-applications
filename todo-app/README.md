@@ -25,4 +25,6 @@ Server running in production mode at http://localhost:8080
 ```
 http://localhost:8080/api/
 http://localhost:8080/api/todos/
+http://localhost:8080/api/todos/id
+http://localhost:8080/api/statistics
 ```

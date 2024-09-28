@@ -1,19 +1,19 @@
 services:
-  todo-front-dev:
-    image: todo-front-dev
-    container_name: todo-front-dev
+  todo-front-prod:
+    image: todo-front-prod
+    container_name: todo-front-prod
     volumes:
       - ./todo-frontend:/usr/src/app
     environment:
-      - NODE_ENV=development
+      - NODE_ENV=production
       - VITE_BACKEND_URL=http://localhost:8080/api/
     depends_on:
-      - todo-back-dev
+      - todo-back-prod
     expose:
-      - 5173
+      - 80
 
-  todo-back-dev:
-    image: todo-back-dev
+  todo-back-prod:
+    image: todo-back-prod
     expose:
       - 3000
     volumes:
@@ -24,7 +24,7 @@ services:
     depends_on:
       - redis
       - mongo
-    container_name: todo-back-dev
+    container_name: todo-back-prod
 
   mongo:
     image: mongo
@@ -49,10 +49,10 @@ services:
   nginx:
     image: nginx:1.27-alpine
     volumes:
-      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
       - 8080:80
     container_name: reverse_proxy
     depends_on:
-      - todo-front-dev
-      - todo-back-dev
+      - todo-front-prod
+      - todo-back-prod
