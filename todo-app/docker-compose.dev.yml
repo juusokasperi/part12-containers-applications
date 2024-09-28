@@ -13,7 +13,7 @@ services:
       - 5173
 
   todo-back-dev:
-    image: todo-backend
+    image: todo-back-dev
     expose:
       - 3000
     volumes:

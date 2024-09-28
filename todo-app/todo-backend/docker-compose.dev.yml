@@ -1,6 +1,6 @@
 services:
   todo-back-dev:
-    image: todo-backend
+    image: todo-back-dev
     build:
       context: .
       dockerfile: dev.Dockerfile
