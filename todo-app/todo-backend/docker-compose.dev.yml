@@ -1,5 +1,5 @@
 services:
-  todo-front-dev:
+  todo-back-dev:
     image: todo-backend
     build:
       context: .
