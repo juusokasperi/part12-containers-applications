@@ -2,9 +2,9 @@
 
 ```
 Before building, remember to add .env file to ./backend/, containing:
-MONGODB_URI=link_to_mongodb
-TEST_MONGODB_URI=link_to_testing_mongodb
-SECRET=secret_random_string_for_jwt
+MONGODB_URI=mongodb+srv://<user>:<password>@<cluster.xxxxxxx.mongodb.net>/blogList?retryWrites=true&w=majority
+TEST_MONGODB_URI=mongodb+srv://<user>:<password>@<cluster.xxxxxxx.mongodb.net>/testBlogList?retryWrites=true&w=majority
+SECRET=<RANDOM_STRING_FOR_JWT_TOKEN>
 ```
 
 ## Build & run in development mode
