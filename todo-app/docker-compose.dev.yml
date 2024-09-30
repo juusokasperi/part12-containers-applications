@@ -1,7 +1,9 @@
 services:
   todo-front-dev:
     image: todo-front-dev
-    container_name: todo-front-dev
+    build:
+      context: ./todo-frontend/
+      dockerfile: dev.Dockerfile
     volumes:
       - ./todo-frontend:/usr/src/app
     environment:
@@ -11,9 +13,13 @@ services:
       - todo-back-dev
     expose:
       - 5173
+    container_name: todo-front-dev
 
   todo-back-dev:
     image: todo-back-dev
+    build:
+      context: ./todo-backend/
+      dockerfile: dev.Dockerfile
     expose:
       - 3000
     volumes:

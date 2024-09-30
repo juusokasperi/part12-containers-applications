@@ -1,19 +1,26 @@
 services:
   todo-front-prod:
     image: todo-front-prod
-    container_name: todo-front-prod
-    volumes:
-      - ./todo-frontend:/usr/src/app
     environment:
       - NODE_ENV=production
-      - VITE_BACKEND_URL=http://localhost:8080/api/
+    build:
+      context: ./todo-frontend/
+      dockerfile: Dockerfile
+      args:
+        - VITE_BACKEND_URL=http://localhost:8080/api/
+    volumes:
+      - ./todo-frontend:/usr/src/app
     depends_on:
       - todo-back-prod
     expose:
       - 80
+    container_name: todo-front-prod
 
   todo-back-prod:
     image: todo-back-prod
+    build:
+      context: ./todo-backend
+      dockerfile: Dockerfile
     expose:
       - 3000
     volumes:
